@@ -1,11 +1,7 @@
 ---
-
 title: "Dotnet 加入log4net 並開始記錄"
-
 date: 2021-12-24
-
 description: "Dotnet 加入log4net 並開始記錄"
-
 ---
 
 
@@ -53,7 +49,7 @@ https://www.youtube.com/watch?v=2lAdQ_QwNww
     
 
     
-
+```xml
     <log4net>
 
         <!-- OFF,FATAL,ERROR,WARN,INFO,DEBUG,ALL -->
@@ -99,20 +95,18 @@ https://www.youtube.com/watch?v=2lAdQ_QwNww
         </appender> 
 
       </log4net>
+```
+
+
+`<level value="DEBUG" />` 是紀錄層級 DEBUG以上(基本上就是全部啦)會被記錄
 
 
 
-<level value="DEBUG" /> 是紀錄層級 DEBUG以上(基本上就是全部啦)會被記錄
+`<appender-ref ref="SysAppender" />` 這是加入名為sysappender的設定
 
 
 
-<appender-ref ref="SysAppender" /> 這是加入名為sysappender的設定
-
-
-
-所以 <appender name="SysAppender"
-
-type="log4net.Appender.RollingFileAppender,log4net"> 設定了appender
+所以 `<appender name="SysAppender" type="log4net.Appender.RollingFileAppender,log4net">` 設定了appender
 
 
 
@@ -141,11 +135,7 @@ identity上一篇就整合好了，不知道如果是用membership會不會有
 那接下來就是DB
 
 
-
-    
-
-    
-
+```xml
     <appender name="AdoNetAppender" type="log4net.Appender.AdoNetAppender">
 
     .      <bufferSize value="1" />
@@ -157,21 +147,16 @@ identity上一篇就整合好了，不知道如果是用membership會不會有
           <commandText value="INSERT INTO Logs ([logDate],[logThread],[logLevel],[logSource],[logMessage],[exception],[user]) VALUES (@log_date, @log_thread, @log_level, @log_source, @log_message, @exception, @user)" />
 
           <commandType value="Text" />
-
+```
 
 
 除了直接用寫入外 還可以用預存程序 stored procedure
 
-
-
-    
-
-    
-
+```xml
           <commandText value="dbo.procLogs_Insert" />
 
           <commandType value="StoredProcedure" />
-
+```
 
 
 這樣還能自動比對輸入欄位
@@ -181,11 +166,7 @@ identity上一篇就整合好了，不知道如果是用membership會不會有
 設定完畢後，看看C#裡面該做什麼
 
 
-
-    
-
-    
-
+```csharp
     using log4net;
 
     using log4net.Config;
@@ -197,18 +178,12 @@ identity上一篇就整合好了，不知道如果是用membership會不會有
     
 
     log.Error("this is error");
-
+```
 
 
 這樣就完成啦
 
-
-
-    
-
-    
-
-    log4net.GlobalContext.Properties["identity"] = "testb";
+`log4net.GlobalContext.Properties["identity"] = "testb";`
 
 
 

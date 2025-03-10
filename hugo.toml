@@ -11,6 +11,8 @@ defaultContentLanguage = "zh-tw"
 
 enableEmoji = true
 ignoreErrors = ["additional-script-loading-error"] # ignore error of loading additional scripts.
+
+
 [[params.socialIcons]]
 name = "github"
 url = "https://github.com/hugo-sid"
