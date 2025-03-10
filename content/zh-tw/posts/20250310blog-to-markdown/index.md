@@ -40,6 +40,8 @@ def sanitize_filename(name):
     print(name)
     return name
 ```
+後來為了好管理，我又加了一步驟，把檔名改成年月日開頭 "20230824NET-Integration-nUnit"
+
 
 **坑**
 
@@ -122,6 +124,7 @@ def fix_broken_image_links(file_path):
     with open(file_path, "w", encoding="utf-8") as file:
         file.write("\n".join(fixed_lines) + "\n")
 ```
+
 
 ## 結語
 
