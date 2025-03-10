@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 
-title = 'My New Hugo Site'
+title = 'Jay on Ascent'
 theme = 'awesome'
 
 # This is what goes in <html lang="">
@@ -79,14 +79,14 @@ url = "index.xml"
 [Languages.zh-tw.params.author]
   avatar = "images/avatar.webp" # put the file in assets folder; also ensure that image has same height and width
   # Note: image is not rendered if the resource(avatar image) is not found. No error is displayed.
-  intro = "A space of experiences"
-  name = "Sidharth R"
-  description = "A fast, minimalistic Hugo theme with light and dark mode support, for running a personal site or blog."
+  intro = "Jay's space of experiences"
+  name = "Jay Hung"
+  description = "I wrote what I explored as an engineer. Work with backend, frontend, AI(image & llm), with some hardware experience."
 
 # Allow to override webmanifest options
 [Languages.zh-tw.params.webmanifest]
-  name = "sitename" # will use "params.sitename" or "title" by default
-  short_name = "sitename" # same as name
+  name = "jayonascent" # will use "params.sitename" or "title" by default
+  short_name = "jayonascent" # same as name
   start_url = "/" # will use homepage url by default
   theme_color = "#434648" # default is "#434648" (base color of text). Also will override html `<meta name="theme-color" />`
   background_color = "#fff" # by default depend on "params.defaultColor" for "light" or "auto" will be set to "#fff" for dark will be "#131418" (color of dark mode background)
